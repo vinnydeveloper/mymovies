@@ -1,11 +1,107 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+  <header class="bg-dark">
+    <nav class="container navbar navbar-dark justify-content-center">
+      <a class="navbar-brand" href="#">
+        MyMovies
+      </a>
+    </nav>
+    </nav>
+  </header>
+  <main class="container my-5">
+    <section class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <img src="/images/poster-harry-potter.jpg" class="card-img card-img-full" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Harry Potter e a Câmara secretea</h5>
+            <p class="card-text">Queria dizer que: É noix que vôa bruxão!</p>
+            <button class="btn btn-secondary  mb-3">Já assistir!</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="/images/poster-harry-potter-2.jpg" class="card-img card-img-full" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Harry Potter e o Prisioneiro de Azkaban </h5>
+            <p class="card-text">Queria dizer que: É noix que vôa bruxão!</p>
+            <button class="btn btn-success  mb-3">Já assistir!</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="/images/poster-harry-potter-3.jpg" class="card-img card-img-full" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Harry Potter e a Câmara secreta</h5>
+            <p class="card-text">Queria dizer que: É noix que vôa bruxão!</p>
+            <button class="btn btn-secondary mb-3">Já assistir!</button>
+          </div>
+        </div>
+    </section>
+    <div class="container text-right fixed-bottom d-flex justify-content-end">
+
+      <img src="/images/plus.svg" class="button-add" data-toggle="modal" data-target="#add">
+    </div>
+  </main>
+  <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="addLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addLabel">Cadastro de filme</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="" method="post">
+            <div class="form-group">
+              <label for="">Nome do Filme</label>
+              <input class="form-control" type="text" name="name" id="">
+            </div>
+            <div class="form-group">
+              <label for="">Descrição do Filme</label>
+              <input class="form-control" type="text" name="description" id="">
+            </div>
+            <div class="form-group">
+              <label for="">Capa do Filme</label>
+              <input class="form-control" type="file" name="poster" id="">
+            </div>
+            <div class="form-group">
+              <label for="">Já assistiu o filme?</label>
+              <input class="form-control" type="checkbox" name="viewMovie" id="">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-primary">Finalizar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
