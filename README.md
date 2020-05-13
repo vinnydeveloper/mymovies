@@ -17,7 +17,7 @@ Clone esse projeto e faça os seguintes passos:
 $ cd mymovies
 $ npm install
 ```
-Depois da intação de dependencias, crie um banco de dados vazio e faça as configurações de conexão no arquivo config/database.js e continue com os seguintes comandos:
+Depois da instalação de dependencias, crie um banco de dados vazio e faça as configurações de conexão no arquivo config/database.js e continue com os seguintes comandos:
 ```sh
 $ npx sequelize migrate
 $ node index.js
