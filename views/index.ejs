@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= title %></title>
+  <title>My Movies</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="/stylesheets/style.css">
@@ -21,37 +21,30 @@
   </header>
   <main class="container my-5">
     <section class="row">
+      <% if(typeof movies !== 'undefined'){ %>
+      <% movies.forEach(movie => { %>
       <div class="col-md-4">
         <div class="card">
-          <img src="/images/poster-harry-potter.jpg" class="card-img card-img-full" alt="...">
+          <img src="/images/<%= movie.poster %>" class="card-img card-img-full" alt="...">
           <div class="card-body">
-            <h5 class="card-title">Harry Potter e a Câmara secretea</h5>
-            <p class="card-text">Queria dizer que: É noix que vôa bruxão!</p>
-            <button class="btn btn-secondary  mb-3">Já assistir!</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <img src="/images/poster-harry-potter-2.jpg" class="card-img card-img-full" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Harry Potter e o Prisioneiro de Azkaban </h5>
-            <p class="card-text">Queria dizer que: É noix que vôa bruxão!</p>
+            <h5 class="card-title"><%= movie.name %></h5>
+            <p class="card-text"><%= movie.description %></p>
+            <% if(movie.watched) { %>
             <button class="btn btn-success  mb-3">Já assistir!</button>
+            <% }else { %>
+            <a href="/assitir/<%= movie.id %>" class="btn btn-secondary">Já assistir!</a>
+            <% } %>
           </div>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="card">
-          <img src="/images/poster-harry-potter-3.jpg" class="card-img card-img-full" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Harry Potter e a Câmara secreta</h5>
-            <p class="card-text">Queria dizer que: É noix que vôa bruxão!</p>
-            <button class="btn btn-secondary mb-3">Já assistir!</button>
-          </div>
-        </div>
+      <% }) %>
+
+      <% } else { %>
+      <h1>Não há filmes cadastrados!</h1>
+      <% } %>
+
     </section>
-    <div class="container text-right fixed-bottom d-flex justify-content-end">
+    <div class=" container text-right fixed-bottom d-flex justify-content-end">
 
       <img src="/images/plus.svg" class="button-add" data-toggle="modal" data-target="#add">
     </div>
@@ -66,7 +59,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="" method="post">
+          <form action="/cadastrar" enctype="multipart/form-data" method="post">
             <div class="form-group">
               <label for="">Nome do Filme</label>
               <input class="form-control" type="text" name="name" id="">
@@ -81,14 +74,14 @@
             </div>
             <div class="form-group">
               <label for="">Já assistiu o filme?</label>
-              <input class="form-control" type="checkbox" name="viewMovie" id="">
+              <input class="form-control" type="checkbox" name="watched" id="">
             </div>
-          </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-          <button type="button" class="btn btn-primary">Finalizar</button>
+          <button type="submit" class="btn btn-primary">Finalizar</button>
         </div>
+        </form>
       </div>
     </div>
   </div>
