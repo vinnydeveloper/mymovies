@@ -1,6 +1,6 @@
 # My Movies
 
-Projeto criado em node.js com express para exercicio da turma do santander corders
+Projeto criado em node.js com express para exercicio da turma do santander coders
 
 # Funcionalidades!
 
