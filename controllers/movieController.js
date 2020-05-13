@@ -17,7 +17,7 @@ const movieController = {
       name,
       poster: poster.filename,
       description,
-      watched,
+      watched: watched ? 1 : 0,
     });
     // Validando se teve algum problema ao criar o filme
     if (!newMovie) {
@@ -26,11 +26,11 @@ const movieController = {
     // Se deu tudo certo até aqui, o usuario será redirecionado a pagina inicial
     return res.redirect("/");
   },
-  checkWatched: (req, res) => {
+  checkWatched: async (req, res) => {
     // Recebendo o id do filme que queremos marcar como assitido
     const { id } = req.params;
     // Atualizando no banco que ja assitiu o filme
-    const movie = Movie.update(
+    const movie = await Movie.update(
       {
         watched: 1,
       },
@@ -42,7 +42,7 @@ const movieController = {
     );
 
     // Validando se teve algum problema ao alterar o filme
-    if (!newMovie) {
+    if (!movie) {
       return res.render("index", { msg: "Falha ao alterar o filme" });
     }
     // Se deu tudo certo até aqui, o usuario será redirecionado a pagina inicial
